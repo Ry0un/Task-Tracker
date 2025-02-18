@@ -35,6 +35,10 @@ public class Task {
         return updateDate;
     }
 
+    public void setId(int newId){
+        this.id = newId;
+    }
+
 
     public String toString(){
         return "{ "+"\"Task\":"+"\""+description+"\", "+"\"ID \":"+id+" ,"+"\"Creation Date \":"+"\""+createDate+"\", "+"\"Update Date \":"+"\""+updateDate+"\""+" }";

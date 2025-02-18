@@ -1,55 +1,44 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class writeTask {
 
-
-    private File file = new File("Task.json");
+    private static final File file = new File("Tasks.json");
+    private static final StringBuilder sb = new StringBuilder(" ");
+    private static final ArrayList<String> list = new ArrayList<>();
 
 
     public void addTask(Task task){
-        StringBuilder sb = new StringBuilder(task.toString());
+        String fileTest = readFile().toString().replace("[","").replace("]",",");
+        list.add(fileTest+task);
 
-        String test = readFile();
-
-        if(file.exists() == false || file.length()==0){
-            write("["+sb.toString()+"]");
-        } else{
-            String updatedFile = test.substring(0,test.length()-2)+",\n"+sb.toString()+"\n]";
-            write(updatedFile);
-        }
-
-
-    }
-
-
-    public void write(String task){
-        try {
-            FileWriter writeT = new FileWriter(file);
-            writeT.write(task);
-            writeT.close();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String readFile(){
-        StringBuilder data = new StringBuilder();
         try{
-            Scanner reader = new Scanner(file);
-            while(reader.hasNextLine()){
-                data.append(reader.nextLine()).append("\n");
-            }
-            reader.close();
-        }catch (FileNotFoundException e){
-            System.out.println("The File does not exist");
-            e.printStackTrace();
+            FileWriter writer = new FileWriter(file);
+            writer.write(list.toString());
+            writer.close();
+        }catch (IOException e){
+            System.out.println("Can't write on this file");
         }
-
-        return data.toString();
     }
 
 
+    private static StringBuilder readFile(){
+        sb.delete(0,sb.length()-1);
+        String lines;
+        try{
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                lines = scanner.nextLine();
+                sb.append(lines).append("\n");
+
+            }
+        } catch (FileNotFoundException e){
+            System.out.println("File does not exist");
+        }
+        sb.toString().replace("[","").replace("]","");
+        return sb;
+    }
 
 
 
