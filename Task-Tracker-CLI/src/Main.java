@@ -33,7 +33,7 @@ public class Main {
                     System.out.print("What task do you want to change [id max = "+taskM.getFileSize()+"] :");
                     int idToModify = scanner.nextInt();
                     scanner.nextLine();
-                    taskM.modifyFile(idToModify);
+
                     }
                     break;
                 case "Q":

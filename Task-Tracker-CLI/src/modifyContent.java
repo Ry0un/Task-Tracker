@@ -1,4 +1,6 @@
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +18,15 @@ public class modifyContent {
       for (int i=1;i<list.size();i++){
           if(i==idToModify){
               System.out.println(list.get(i));
+              String otherTest = "emd";
+              otherTest = list.get(i);
           }
+      }
+
+      try(FileWriter writer = new FileWriter(writeTask.file)){
+          writer.write(list.toString());
+      }catch (IOException e){
+          e.printStackTrace();
       }
 
   }
