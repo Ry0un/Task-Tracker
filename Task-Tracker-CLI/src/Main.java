@@ -32,11 +32,7 @@ public class Main {
                     taskTracker =false;
                     break;
                 default:
-                    System.out.print("What do you want to do?: ");
-                    System.out.print("|| \u001B[36m Write a Task [A] ");
-                    System.out.print(" \u001B[0m || \u001B[35m Modify a Task [M] ");
-                    System.out.print(" \u001B[0m || \u001B[34m Quit [Q] \u001B[0m :");
-                    test = scanner.nextLine();
+                    System.out.println("Invalid option. Please enter A, M, or Q.");
             }
 
         }
