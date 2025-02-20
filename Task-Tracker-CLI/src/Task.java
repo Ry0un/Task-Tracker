@@ -37,6 +37,10 @@ public class Task {
         this.id = newId;
     }
 
+    public void setTaskName(String newName){
+        this.description = newName;
+    }
+
 
     public String toString(){
         return "{ "+"\"Task\":"+"\""+description+"\", "+"\"ID \":"+id+" ,"+"\"Creation Date \":"+"\""+createDate+"\", "+"\"Update Date \":"+"\""+updateDate+"\""+" }";

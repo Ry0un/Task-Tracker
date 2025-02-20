@@ -7,6 +7,7 @@ public class writeTask {
     private static final File file = new File("Tasks.json");
     private static final StringBuilder sb = new StringBuilder(" ");
     private static final ArrayList<String> list = new ArrayList<>();
+    private static final ArrayList<String> tasks = new ArrayList<>();
 
 
     public void addTask(Task task){
@@ -32,6 +33,7 @@ public class writeTask {
             while (scanner.hasNextLine()) {
                 lines = scanner.nextLine();
                 sb.append(lines).append("\n");
+                tasks.add(lines);
 
             }
         } catch (FileNotFoundException e){
