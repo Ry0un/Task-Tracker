@@ -5,6 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         writeTask task = new writeTask();
         boolean taskTracker = true;
+        int id =1;
 
         while (taskTracker){
 
@@ -20,6 +21,7 @@ public class Main {
                     System.out.print("Write a Task: ");
                     String taskWriting =scanner.nextLine();
                     Task task1 =new Task(taskWriting);
+                    task1.setId(id++);
                     task.addTask(task1);
                     break;
                 case "M":
