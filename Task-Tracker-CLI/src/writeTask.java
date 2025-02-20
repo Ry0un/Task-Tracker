@@ -10,7 +10,7 @@ public class writeTask {
 
 
     public void addTask(Task task){
-        String fileTest = readFile().toString().replace("[","").replace("]",",");
+        String fileTest = readFile().toString().replace("[","").replace("]","");
         list.add(fileTest+task);
 
         try{
@@ -20,11 +20,12 @@ public class writeTask {
         }catch (IOException e){
             System.out.println("Can't write on this file");
         }
+        list.clear();
     }
 
 
     private static StringBuilder readFile(){
-        sb.delete(0,sb.length()-1);
+        sb.setLength(0);
         String lines;
         try{
             Scanner scanner = new Scanner(file);
@@ -36,7 +37,9 @@ public class writeTask {
         } catch (FileNotFoundException e){
             System.out.println("File does not exist");
         }
-        sb.toString().replace("[","").replace("]","");
+        String cleanedContent = sb.toString().replace("[", "").replace("]", ",");
+        sb.setLength(0);
+        sb.append(cleanedContent);
         return sb;
     }
 
