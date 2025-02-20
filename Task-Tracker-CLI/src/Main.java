@@ -30,10 +30,14 @@ public class Main {
                     if(taskM.getFileSize() ==0){
                         System.out.println("There are no tasks to modify");
                     }else {
-                    System.out.print("What task do you want to change [id max = "+taskM.getFileSize()+"] :");
-                    int idToModify = scanner.nextInt();
-                    scanner.nextLine();
-
+                        System.out.print("What task do you want to change [id max = "+taskM.getFileSize()+"] :");
+                        int idToModify = scanner.nextInt();
+                        scanner.nextLine();
+                        if(idToModify <1){
+                            System.out.println("The minimum id is 1");
+                        }else{
+                            System.out.println("emd");
+                        }
                     }
                     break;
                 case "Q":
