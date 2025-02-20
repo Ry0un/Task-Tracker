@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         writeTask task = new writeTask();
         boolean taskTracker = true;
-        int id =1;
+        int id =0;
 
         while (taskTracker){
 
@@ -21,12 +21,20 @@ public class Main {
                     System.out.print("Write a Task: ");
                     String taskWriting =scanner.nextLine();
                     Task task1 =new Task(taskWriting);
-                    task1.setId(id++);
+                    task1.setId(id+=1);
                     task.addTask(task1);
                     break;
                 case "M":
                 case "m":
-                    System.out.println("Cant modify yet you will have to wait");
+                    modifyContent taskM = new modifyContent();
+                    if(taskM.getFileSize() ==0){
+                        System.out.println("There are no tasks to modify");
+                    }else {
+                    System.out.print("What task do you want to change [id max = "+taskM.getFileSize()+"] :");
+                    int idToModify = scanner.nextInt();
+                    scanner.nextLine();
+                    taskM.modifyFile(idToModify);
+                    }
                     break;
                 case "Q":
                 case "q":
@@ -36,6 +44,7 @@ public class Main {
                 default:
                     System.out.println("Invalid option. Please enter A, M, or Q.");
             }
+
 
         }
 
