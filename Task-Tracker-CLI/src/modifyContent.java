@@ -17,9 +17,8 @@ public class modifyContent {
   public void modifyFile(int idToModify){
       for (int i=1;i<list.size();i++){
           if(i==idToModify){
-              System.out.println(list.get(i));
-              String otherTest = "emd";
-              otherTest = list.get(i);
+              String modifier = list.get(idToModify);
+
           }
       }
 
