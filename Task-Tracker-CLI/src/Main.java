@@ -36,7 +36,7 @@ public class Main {
                         if(idToModify <1){
                             System.out.println("The minimum id is 1");
                         }else{
-                            System.out.println("emd");
+                           taskM.changeFile(idToModify);
                         }
                     }
                     break;

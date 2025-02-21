@@ -11,7 +11,7 @@ public class writeTask {
 
 
     public void addTask(Task task){
-        String fileTest = readFile().toString().replace("[","").replace("]","");
+        String fileTest = readFile().toString();
         list.add(fileTest+task);
 
         try{
